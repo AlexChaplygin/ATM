@@ -20,7 +20,7 @@ public class Card implements Serializable {
     private Long id;
 
     @Column
-    private Long number;
+    private String cardNumber;
 
     @Column
     private String pin;
