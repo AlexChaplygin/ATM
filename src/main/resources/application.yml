@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost/postgres
+    url: jdbc:postgresql://localhost/atm
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -10,3 +10,6 @@ spring:
       hibernate:
         temp:
           use_jdbc_metadata_defaults: false
+token:
+  expirationDate: 1200000
+  secret: H434HY4HJHJ897FFF

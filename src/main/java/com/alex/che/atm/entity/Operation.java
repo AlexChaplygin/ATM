@@ -1,12 +1,13 @@
 package com.alex.che.atm.entity;
 
+import com.alex.che.atm.constants.CardOperation;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigInteger;
-import java.time.LocalTime;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -20,16 +21,16 @@ public class Operation {
     private Long id;
 
     @Column(name = "date", nullable = false)
-    private LocalTime date;
+    private Date date;
 
-    @Column(name = "withdrawal", nullable = false)
+    @Column(name = "withdrawal")
     private BigInteger withdrawal;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id", nullable = false, referencedColumnName = "id")
     private Card card;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "card_operation_id", referencedColumnName = "id")
+    @Column(name = "card_operation")
+    @Enumerated(EnumType.STRING)
     private CardOperation cardOperation;
 }
